@@ -2,10 +2,10 @@
 <html lang='ru'>
 
     <head>
-        <script src="https://api-maps.yandex.ru/2.1/?apikey=c472441-ed32-4bed-a362-addea55b0252&lang=ru_RU" type="text/javascript">
+        <script src="https://api-maps.yandex.ru/2.1/?apikey=3efb9e24-40bd-4aa0-95f8-3b8e1423f961&lang=ru_RU" type="text/javascript">
         </script>
-        <link href="./css/styles.css" rel="stylesheet">
-        <script src="./js/jquery.js" ></script>
+        <link href="../css/styles.css" rel="stylesheet">
+        <script src="../js/jquery.js" ></script>
     </head>
 
     <body>
@@ -17,23 +17,43 @@
             <div>
                 <img class="account" src="img/placeholder.svg">
             </div>
+            <p id="demo"></p>
         </div>
     </body>
 
     <script type="text/javascript">
-        ymaps.ready(init);
-
-        var myMap,
-            fullScreen = true;
-
-        function init () {
-            myMap = new ymaps.Map('map', {
-                center: [56.83745,60.59765],
-                zoom: 14,
-                controls: []
-            });
+    var lat = 56.83745;
+    var lon = 60.59765;
+    const x = document.getElementById("demo");
+    window.addEventListener('load', function () {
+        getLocation();
+    });
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(success);     
+        } else {
+            x.innerHTML = "Geolocation is not supported by this browser.";
         }
-        myMap.container.fitToViewport();
+    }
+    function success(position) {
+        lat = position.coords.latitude;
+        lon = position.coords.longitude;
+        x.innerHTML = "Latitude: " + lat +
+        "<br>Longitude: " + lon;
+        ymaps.ready(init);
+    }
+    
+    
+    function init () {
+        myMap = new ymaps.Map('map', {
+            center: [lat,lon],
+            zoom: 14,
+            controls: []
+        });
+    }
+    
+
+
     </script>
 
 </html>

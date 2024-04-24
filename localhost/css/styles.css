@@ -26,4 +26,8 @@ body, html {
     padding: 1em;
     box-sizing: border-box;
   }
-  
+
+.inputform{
+    display: flex;
+	flex-direction: column;
+}
