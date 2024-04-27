@@ -1,9 +1,19 @@
 .container{
     width: 500px;
     height: 700px;
+    position: absolute;
+    top: calc(50% - 350px);
+    left: calc(50% - 250px);
     background-color: #eee;
     display: flex;
     flex-direction: column;   
+}
+.form-back{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 50;
+    background-color: rgba(100,100,100,0.7);
 }
 .title{
     text-align: center;
@@ -25,9 +35,8 @@
     padding-left: 15px;
     box-sizing: border-box;
 }
-::placeholder { /* Most modern browsers support this now. */
+::placeholder {
     color:    black;
-    
  }
 .button{
     width: 350px;

@@ -1,6 +1,6 @@
 #map {
-    width: 400px;
-    height: 300px;
+    width: 100% !important;
+    height: 100% !important;
     position: absolute;
 }
 body, html {
@@ -8,15 +8,7 @@ body, html {
     padding:0;
 }
 
-#toggler {
-    position: absolute;
-    z-index:100
-}
 
-.maxMap {
-    width: 100% !important;
-    height: 100% !important;
-}
 .interface {
     width: 100%;
     position: absolute;
@@ -26,8 +18,65 @@ body, html {
     padding: 1em;
     box-sizing: border-box;
   }
+.menu{
+    position: absolute;
+    left:15px;
+    top:25px;
+    position: absolute;  
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 0;
+    width: 48px;
+    height: 48px; 
+}
+
+.account{
+    position: absolute;
+    right:15px;
+    top: 25px;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 0;
+    width: 48px;
+    height: 48px;
+    z-index: 60;
+}
 
 .inputform{
     display: flex;
 	flex-direction: column;
+}
+
+.searchbar{
+    position: absolute;
+    left:100px;
+    top:25px;
+}
+.searchbar-input{
+    width: 322px;
+    height: 54px;
+    margin: 30px auto 0;
+    font-family: Inter;
+    font-size: 12px;
+    border-radius: 20px;
+    border: none;
+    color: black;
+    background-color: #fff;
+    padding-left: 24px;
+    box-sizing: border-box;
+    margin: 0;
+}
+input:focus{
+    outline:none;
+}
+.not-visible{
+    display: none;
+}
+.visible{
+    display: block;
+}
+.search-img{
+    position: absolute;
+    right:40px;
+    top: calc(50% - 13px);
 }
