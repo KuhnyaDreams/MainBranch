@@ -1,0 +1,276 @@
+.main-menu{
+    width: 420px;
+    height: 323px;
+    flex-grow: 0;
+    position: absolute;
+    left: 80px;
+    top:0;
+    background-color: #d9d9d9;
+  }
+
+.search{
+    width: 370px;
+    height: 54.8px;
+    flex-grow: 0;
+    border-radius: 15px;
+    background-color: #fff;
+    position: absolute;
+    top:24.2px;
+    left:25.4px;
+  }
+
+.search-text{
+    width: 230px;
+    height: 55px;
+    flex-grow: 0;
+    font-family: Inter;
+    font-size: 12px;
+    text-align: left;
+    position: absolute;
+    color: #726767;
+    left:47.6px;
+    top:0.2px;
+}
+
+.arrow {
+    width: 20px;
+    height: 20px;
+    flex-grow: 0;
+    position: absolute;
+    top:17.8px;
+    left:14.6px;
+}
+
+.img-loop{
+    width: 30px;
+    height: 29.9px;
+    flex-grow: 0;
+    position: absolute;
+    left:292.6px;
+    top:12.2px;
+}
+
+ul{
+    width: 405px;
+    height: 30.2px;
+    flex-grow: 0;
+    background-color: #bfbfbf;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    top:93.6px;
+    justify-content: space-between;
+    padding-inline-start: 15px;
+}
+
+li{ 
+    width: 60.8px;
+    height: 29.2px;
+    opacity: 0.5;
+    font-family: Inter;
+    font-size: 14px;
+    text-align: center;
+    color: #000;    
+    margin-top:10px;
+    display: inline-block;
+}
+
+
+.from-where{
+    width: 292px;
+    height: 55.1px;
+    flex-grow: 0;
+    border-radius: 15px;
+    background-color: #fff;
+    position: relative;
+    top:155px;
+    left:56px;
+}
+
+.from-text{
+    width: 191.8px;
+    height: 55.1px;
+    flex-grow: 0;
+    font-family: Inter;
+    font-size: 12px;
+    display: inline-block;
+    margin-left:27.3px;
+    margin-top: 20px;
+    text-align: left;
+    color: #726767;
+}
+
+.line{
+    position: absolute;
+    width:6px;
+    height: 730px;
+    border-right: 1px solid #d9d9d9;
+    background-color: #d9d9d9;
+    left:482px;
+    top:262px;
+
+}
+
+.line-scroll{
+    width: 10px;
+    height: 299px;
+    border-radius: 7px;
+    background-color: #737479;
+    border-right: 1px solid #d9d9d9;
+    position: absolute;
+    top:262px;
+    left:480px;
+}
+
+.close{
+    width:15px;
+    height:15px;
+    position: absolute;
+    right:15px;
+    top:20px;
+
+}
+
+.two-arrow{
+    width: 40px;
+    height: 40.2px;
+    position: absolute;
+    left:348px;
+    top:215.2px;
+    object-fit: contain;
+
+}
+
+.circle {
+    width: 20px;
+    border-radius: 100%;
+    height: 20.1px;
+    flex-grow: 0;
+    margin: 16.1px 11px 18.9px 0;
+    background-color: #786d6d;
+    position: absolute;
+    left:25px;
+    top:171.1px;
+  }
+
+.main-menu-visit{
+    width: 419.7px;
+    height: 218.8px;
+    background-color: #d9d9d9;
+    position: absolute;
+    left:80.3px;
+    top:0;
+}
+
+.sightseeing{
+    width: 370px;
+    height: 55px;
+    border-radius: 15px;
+    background-color: #fff;
+    position: absolute;
+    top:24.2px;
+    left:25.1px;
+}
+
+
+.sightseeing-text{
+    width: 273.5px;
+    height: 55px;
+    font-family: Inter;
+    font-size: 12px;
+    text-align: left;
+    color: #726767;
+    position: absolute;
+    left:27.6px;
+    top:8px;
+}
+
+.description{
+    width: 200px;
+    height: 110px;
+    background-color: #d9d9d9;
+    position: absolute;
+    left:85px;
+    top:259px;
+}
+
+.landmark{
+    width: 160px;
+    height: 85px;
+    background-color: #d9d9d9;
+    position: absolute;
+}
+
+.landmark-info{
+    width: 200px;
+    height: 24px;
+    font-family: Inter;
+    font-size: 12px;
+    text-align: left;
+    color: #000;
+    position: absolute;
+}
+
+.description-block{
+    width: 200px;
+    height: 110px;
+    flex-grow: 0;
+    background-color: #d9d9d9;
+    position: absolute;
+}
+
+.user-avatar{
+    width: 72.3px;
+    height: 72.6px;
+    background-color: #d9d9d9;
+    position: absolute;
+    left:36.1px;
+    top:119px;
+}
+
+.user-info{
+    width: 189.8px;
+    height: 70.6px;
+    font-family: Inter;
+    font-size: 12px;
+    text-align: left;
+    color: #000;
+    position: absolute;
+    left:122.5px;
+    top:130px;
+}
+
+.detailed-description{
+    width: 380px;
+    height: 500px;
+    background-color: #fff;
+    position: absolute;
+    top:95px;
+    left:531px;
+}
+
+.title{
+    width: 328px;
+    height: 34px;
+    background-color: #fff;
+    position: absolute;
+    top:200px;
+    left:14px;
+    font-family: Inter;
+    font-size: 24px;
+    text-align: left;
+    color: #000;
+}
+
+.desr{
+    width: 328px;
+    height: 34px;
+    font-family: Inter;
+    font-size: 12px;
+    text-align: left;
+    color: #363636;
+    position: absolute;
+    top:234px;
+    left:14px;
+}
