@@ -15,6 +15,12 @@
     z-index: 50;
     background-color: rgba(100,100,100,0.7);
 }
+
+.inputform{
+    display: flex;
+	flex-direction: column;
+}
+
 .title{
     text-align: center;
     font-family: "Inter", sans-serif;
