@@ -1,32 +1,13 @@
-<!DOCTYPE html>
-<html lang='ru'>
+<div class="form-back not-visible" id="authForm">
+    <div class="container input-form">
+        <h1 class="title">Авторизация</h1>
+        <input type="text" placeholder="Логин" name="uname" required class="input">
 
-    <head>
-        <link href="./css/styles.css" rel="stylesheet">
-        <link href="./css/authstyles.css" rel="stylesheet">
-        <script src="./js/jquery.js" ></script>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+        <input type="password" placeholder="Пароль" name="psw" required class="input">
 
-    </head>
-
-    <body>
+        <button type="submit" class="button">Войти</button>
         
-        <form action="action_page.php" class="inputform visible" method="post" id="authForm">
-            <div class="container">
-                <h1 class="title">Авторизация</h1>
-                <input type="text" placeholder="Логин" name="uname" required class="input">
-
-                <input type="password" placeholder="Пароль" name="psw" required class="input">
-
-                <button type="submit" class="button">Войти</button>
-                
-                <span class="small-button"><a href="#">Забыли пароль</a></span>
-                <span class="small-button"><span id="reg" onclick="ChangeToReg()">Зарегестрироваться</span></span>             
-            </div>           
-        </form>
-        
-    </body>
-
-</html>
+        <span class="small-button"><a href="#">Забыли пароль</a></span>
+        <span class="small-button"><span id="reg" onclick="ChangeToReg()">Зарегестрироваться</span></span>             
+    </div>           
+</div>
