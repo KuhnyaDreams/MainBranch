@@ -40,23 +40,18 @@ let psw = document.getElementById('password');
 let cpsw = document.getElementById('confirmPassword');
 
 regbt.onclick = function(){
-    console.log(login.value);
-    console.log(psw.value);
-    console.log(cpsw.value);
-    if (psw.value === cpsw.value){
-        jQuery.ajax({
+    
+    if (psw.value == cpsw.value){
+        $.ajax({
             type: "POST",
-            url: './php/regNewAccount.php',
-            dataType: 'json',
+            url: '../php/regNewAccount.php',
             data: {login: login.value, password: psw.value},
-            success: function (obj, textstatus) {
-                        if( !('error' in obj) ) {
-                            yourVariable = obj.result;
-                        }
-                        else {
-                            console.log(obj.error);
-                        }
-                    }
+            success: function (response) {
+                console.log(response);
+            }
         });
+        console.log(login.value);
+        console.log(psw.value);
+        console.log(cpsw.value);
     }
 }

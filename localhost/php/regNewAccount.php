@@ -1,7 +1,12 @@
 <?php
-header('Content-Type: application/json');
-require_once('connectToDB.php');
-$sql = "INSERT INTO Users (login, password) VALUES ($_POST['login'], $_POST['passwords'])";
-mysqli_query($link, $sql);
-mysqli_close($link);
+    header('Content-Type: application/json');
+    require_once('connectToDB.php');
+    if (isset($_POST['password'])){  
+        $login = $_POST['login'];
+        $psw = $_POST['password'];
+        $sql = "INSERT INTO `Users` (`login`, `password`) VALUES ('$login', '$psw')";
+        mysqli_query($link, $sql);
+    }
+    mysqli_close($link);
+    
 ?>
