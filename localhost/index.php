@@ -22,19 +22,47 @@
         ?>
         
         <div id="map" class="ymaps-layers-pane"></div>
-        <div class="menu" id="menu">
-            <img src="../img/profile.png" width="48px" height="48px">
+        
+        <div class="menu" id="menu" onclick="ShowMenu()">
+            <img src="../img/menu.svg" width="40px" height="40px" >
+        </div>
+        <div class = 'left-menu not-visible'>
+            <div class = 'vertical-menu'>
+                <div class="menu-button" id="route-button" onclick="ShowRoute()">
+                    <img src="../img/menu.svg" width="40px" height="40px" >
+                </div>
+                <div class="menu-button" id="account-button" onclick="ShowAccount()">
+                    <img src="../img/menu.svg" width="40px" height="40px" >
+                </div>
+                <div class="menu-button" id="leaderboard-button" onclick="ShowLeaderboard()">
+                    <img src="../img/menu.svg" width="40px" height="40px" >
+                </div>
+                <div class="menu-button" id="settings-button" onclick="ShowSettings()">
+                    <img src="../img/menu.svg" width="40px" height="40px" >
+                </div>  
+            </div>
+            <div class="left-menu-content">
+                <div class='profile not-visible' id='profile'>
+                </div>
+                <div class="route not-visible" id="route">
+                </div>
+                <div class="leaderboard not-visible" id="leaderboard">
+                </div>
+            </div>
         </div>
         <div class="searchbar" id="searchbar">
             <input type="text" placeholder="Поиск достопримечательностей" name="search" class="searchbar-input">
             <img class="search-img" src="../img/search.png">
         </div>
+        
         <div class="account" id="auth" onclick="ShowAuth()">
             <img  src="../img/profile.png" width="48px" height="48px">
         </div>
         
     </body>
     <script src="../js/authWindowScript.js"></script>
+    <script src="../js/vertMenu.js"></script>
+    <script src="../js/menuButtons.js"></script>
     <script type="text/javascript">
     var lat = 56.83745;
     var lon = 60.59765;
