@@ -2,14 +2,7 @@
 <html lang='ru'>
 
     <head>
-        <script src="https://api-maps.yandex.ru/2.1/?apikey=3efb9e24-40bd-4aa0-95f8-3b8e1423f961&lang=ru_RU" type="text/javascript">
-        </script>
-        <link href="../css/styles.css" rel="stylesheet">
-        <link href="../css/authstyles.css" rel="stylesheet">
-        <script src="../js/jquery.js" ></script>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+        <?php include('html/links.html');?>
         <title>Kuhnya Maps</title>
     </head>
 
@@ -43,16 +36,26 @@
             </div>
             <div class="left-menu-content">
                 <div class='profile not-visible' id='profile'>
+                    <?php include('html/profile.html');?>
                 </div>
                 <div class="route not-visible" id="route">
+                    <?php include('html/route.html');?>
                 </div>
                 <div class="leaderboard not-visible" id="leaderboard">
+                    <?php include('html/leaderBoard.html');?>
+                </div>
+                <div class="settings not-visible" id="settings">
+                    <?php include('html/settings.html');?>
                 </div>
             </div>
         </div>
-        <div class="searchbar" id="searchbar">
-            <input type="text" placeholder="Поиск достопримечательностей" name="search" class="searchbar-input">
-            <img class="search-img" src="../img/search.png">
+        <div class="searchbar" >
+            <input type="text" placeholder="Поиск достопримечательностей" name="search" class="searchbar-input" id="searchbar">
+            <div class="search-img">
+                <div ><img  src="../img/search.png"></div>
+                <div class='vert-line'></div>
+                <div onclick="CleanInput()"><img  src="../img/close.svg" width ="28px" height="28px"> </div>
+            </div>
         </div>
         
         <div class="account" id="auth" onclick="ShowAuth()">
@@ -63,6 +66,7 @@
     <script src="../js/authWindowScript.js"></script>
     <script src="../js/vertMenu.js"></script>
     <script src="../js/menuButtons.js"></script>
+    <script src="../js/profileButtons.js"></script>
     <script type="text/javascript">
     var lat = 56.83745;
     var lon = 60.59765;
@@ -91,6 +95,11 @@
             zoom: 14,
             controls: []
         });
+    }
+
+    let search = document.getElementById('searchbar');
+    function CleanInput(){
+        search.value="";
     }
     </script>
 
