@@ -18,15 +18,18 @@ body, html {
     box-sizing: border-box;
   }
 .menu{
-    position: absolute;
-    left:15px;
+    left:10px;
     top:25px;
     position: absolute;  
     background-color: #fff;
     border-radius: 10px;
-    padding: 0;
-    width: 48px;
-    height: 48px; 
+    padding: auto;
+    width: 50px;
+    height: 50px; 
+    z-index: 7;
+}
+.menu>img{
+    margin: 5px;
 }
 
 .account{
@@ -40,11 +43,52 @@ body, html {
     height: 48px;
     z-index: 60;
 }
+.profile, .leaderboard, .route {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    padding-top: 100px;
+    height: calc(100% - 100px);
+    width: 25%;
+    left:5%;
+    background-color: #ffffff;
+}
 
+.left-menu{
+    display: flex;
+    flex-direction: row;
+}
+.vertical-menu{
+    
+    position: absolute;
+    display: flex;
+    
+    flex-direction: column;
+    padding-top: 100px;
+    height: calc(100% - 100px);
+    width: 5%;
+    background-color: #e8e8e8;
+    
+}
+.menu-button{
+    margin:10px 10px;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 0;
+    width: 50px;
+    height: 50px; 
+}
+.menu-button>img{
+    margin: 5px;
+}
+#settings-button{
+    margin-top: auto;
+}
 .searchbar{
     position: absolute;
     left:100px;
     top:25px;
+    z-index: 10;
 }
 .searchbar-input{
     width: 322px;
