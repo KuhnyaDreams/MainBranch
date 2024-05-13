@@ -51,7 +51,7 @@ function ShowAccount(){
     }
 }
 function ShowSettings(){
-    if (profileBlock.className == 'profile not-visible')
+    if (settingsBlock.className == 'settings not-visible')
     {
         settingsBlock.classList.remove('not-visible');
         leaderBlock.classList.add('not-visible');

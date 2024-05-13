@@ -1,6 +1,6 @@
 #map {
-    width: 100% !important;
-    height: 100% !important;
+    width: 100%;
+    height: 100%;
     position: absolute;
 }
 
@@ -8,25 +8,14 @@ body, html {
     margin:0;
     padding:0;
     font-family: Inter;
-    
 }
 
-.interface {
-    width: 100%;
-    position: absolute;
-    display: flex;
-    justify-content: space-between;
-    
-    padding: 1em;
-    box-sizing: border-box;
-  }
 .menu{
     left:10px;
     top:25px;
     position: absolute;  
     background-color: #fff;
     border-radius: 10px;
-    padding: auto;
     width: 50px;
     height: 50px; 
     z-index: 7;
@@ -74,7 +63,7 @@ body, html {
     
 }
 .menu-button{
-    margin:10px 10px;
+    margin:10px;
     background-color: #fff;
     border-radius: 10px;
     padding: 0;
@@ -119,6 +108,7 @@ input:focus{
     display: block;
 }
 .search-img{
+    min-width: 70px;
     display: flex;
     flex-direction: row;
     position: absolute;
