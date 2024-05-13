@@ -50,16 +50,14 @@ regbt.onclick = function(){
                 login.value = '';
                 psw.value='';
                 cpsw.value='';
-                
+                location.reload();
             },
         });
     }
 }
-
 function getCookie(name) {
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${name}=`);
-    if (parts.length === 2) return parts.pop().split(';').shift();
+	var matches = document.cookie.match(new RegExp("(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"));
+	return matches ? decodeURIComponent(matches[1]) : undefined;
 }
 
 let logbt = document.getElementById('logButton');
@@ -67,14 +65,23 @@ let authlogin = document.getElementById('authlogin');
 let authpsw = document.getElementById('authpassword');
 
 logbt.onclick = function(){
+
+    console.log(authlogin.value, authpsw.value);
     $.ajax({
         type: "POST",
         url: '../php/authAccount.php',
         data: {login: authlogin.value, password: authpsw.value},
         success: function (response) {
-            authlogin.value = '';
-            authpsw.value = '';
-            document.getElementById('loginProfile').value=getCookie('userlogin');
+            if (response=='success'){
+                authlogin.value = '';
+                authpsw.value = '';
+                console.log(getCookie('userID') + getCookie('userlogin'));
+                location.reload();
+            }else{
+
+            }
         },
-    });  
+    });
 }
+    
+    

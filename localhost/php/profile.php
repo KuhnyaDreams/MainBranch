@@ -1,0 +1,112 @@
+<div class="profile-frame">
+    <div class="avatar">
+        <img src="img/avatar.jpg" alt="avatar" width="80px" height="80px">
+    </div>
+
+    <div class="profile-name">
+        <div class="user-name">Логин: <span id="loginProfile"><?php if(isset($_COOKIE["userlogin"])){ echo $_COOKIE["userlogin"];} ?></span></div>
+        <div class="invite-code">Код для друзей <span id="loginID"><?php if(isset($_COOKIE["userID"])){  echo $_COOKIE["userID"];} ?></span></div>
+    </div>
+</div>
+
+<div class="profile-info">
+    <div class="profile-item" id="my-pins" ><span> Мои места </span></div>
+    <div class="profile-item" id="achievements" ><span>Достижения </span></div>
+    <div class="profile-item" id="want-visit" ><span>Хочу песетить </span></div>
+    <div class="profile-item" id="favorite" ><span>Любимое</span></div>
+    <div class="profile-item" id="friends" ><span>Друзья</span></div>
+</div>
+
+
+<div class="want-visit not-visible">
+    <div class="landmark">
+        <div class="lanmark-info">  
+            <div class="landmark-name">
+                <div >Ельцин Центр</div>
+            </div>
+
+            <div class="landmark-description">
+                <div>Культурный центр, музей</div>
+            </div>
+
+            <div class="landmark-misc">
+                <div>Открыто до 21:00
+                    Ул.Бориса Ельцина, 3</div>
+            </div>
+        </div>
+        <div class="photo-landmark">
+            <img src="img/photo-landmark.jpg" alt="photo landmark" width="170px" height="110px">
+        </div>
+    </div>
+</div>
+<div class="favorite not-visible">
+    <div class="landmark">
+        <div class="lanmark-info">  
+            <div class="landmark-name">
+                <div >Ельцин Центр</div>
+            </div>
+
+            <div class="landmark-description">
+                <div>Культурный центр, музей</div>
+            </div>
+
+            <div class="landmark-misc">
+                <div>Открыто до 21:00
+                    Ул.Бориса Ельцина, 3</div>
+            </div>
+        </div>
+        <div class="photo-landmark">
+            <img src="img/photo-landmark.jpg" alt="photo landmark" width="170px" height="110px">
+        </div>
+    </div>
+</div>
+<div class="my-pins not-visible">
+    <div class="landmark">
+        <div class="lanmark-info">  
+            <div class="landmark-name">
+                <div >Ельцин Центр</div>
+            </div>
+
+            <div class="landmark-description">
+                <div>Культурный центр, музей</div>
+            </div>
+
+            <div class="landmark-misc">
+                <div>Открыто до 21:00
+                    Ул.Бориса Ельцина, 3</div>
+            </div>
+        </div>
+        <div class="photo-landmark">
+            <img src="img/photo-landmark.jpg" alt="photo landmark" width="170px" height="110px">
+        </div>
+    </div>
+</div>
+
+<div class="achievements not-visible">
+    <div class="achievement">
+        <div class="achievement-logo">
+            <img src="../img/achievement.png" width="40px" height="40px"> 
+        </div>
+        <div class="achievement-description" >
+            <span>Название достижения</span>
+            <span>Описание достижения</span>
+        </div>
+    </div>
+</div>
+
+<div class="friends not-visible">
+    <div class="add-friend-button">
+        <p class="friend-add">Добавить друга</p>
+    </div>
+
+    <div class="friendlist-placement">
+        <div class="user-info">
+            <img src="./img/not-login-user.jpg" alt="avatar" class="avatar-user">
+
+            <div class="user-name" >
+                Логин пользователя
+            </div>
+        </div>
+    </div>
+
+</div>
