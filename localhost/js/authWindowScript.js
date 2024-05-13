@@ -47,11 +47,34 @@ regbt.onclick = function(){
             url: '../php/regNewAccount.php',
             data: {login: login.value, password: psw.value},
             success: function (response) {
-                console.log(response);
-            }
+                login.value = '';
+                psw.value='';
+                cpsw.value='';
+                
+            },
         });
-        console.log(login.value);
-        console.log(psw.value);
-        console.log(cpsw.value);
     }
+}
+
+function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+}
+
+let logbt = document.getElementById('logButton');
+let authlogin = document.getElementById('authlogin');
+let authpsw = document.getElementById('authpassword');
+
+logbt.onclick = function(){
+    $.ajax({
+        type: "POST",
+        url: '../php/authAccount.php',
+        data: {login: authlogin.value, password: authpsw.value},
+        success: function (response) {
+            authlogin.value = '';
+            authpsw.value = '';
+            document.getElementById('loginProfile').value=getCookie('userlogin');
+        },
+    });  
 }

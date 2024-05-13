@@ -68,8 +68,9 @@
     color: black;
     text-decoration: none;
 }
-.small-button>a:hover{
+.small-button:hover{
     color: #555;
     text-decoration: none;
+    cursor: pointer;
 }
 

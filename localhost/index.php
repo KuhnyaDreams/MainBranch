@@ -10,8 +10,8 @@
         
         <?php
             //require_once('./php/connectToDB.php');
-            include('./php/auth.php');
-            include('./php/reg.php');
+            include('./html/auth.html');
+            include('./html/reg.html');
         ?>
         
         <div id="map" class="ymaps-layers-pane"></div>
@@ -25,7 +25,7 @@
                     <img src="../img/menu.svg" width="40px" height="40px" >
                 </div>
                 <div class="menu-button" id="account-button" onclick="ShowAccount()">
-                    <img src="../img/menu.svg" width="40px" height="40px" >
+                    <img src="../img/profile.png" width="40px" height="40px" >
                 </div>
                 <div class="menu-button" id="leaderboard-button" onclick="ShowLeaderboard()">
                     <img src="../img/menu.svg" width="40px" height="40px" >
