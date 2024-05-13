@@ -9,7 +9,6 @@
     <body>
         
         <?php
-            //require_once('./php/connectToDB.php');
             include('./html/auth.html');
             include('./html/reg.html');
         ?>
@@ -22,21 +21,21 @@
         <div class = 'left-menu not-visible'>
             <div class = 'vertical-menu'>
                 <div class="menu-button" id="route-button" onclick="ShowRoute()">
-                    <img src="../img/menu.svg" width="40px" height="40px" >
+                    <img src="../img/route.svg" width="40px" height="40px" >
                 </div>
                 <div class="menu-button" id="account-button" onclick="ShowAccount()">
                     <img src="../img/profile.png" width="40px" height="40px" >
                 </div>
                 <div class="menu-button" id="leaderboard-button" onclick="ShowLeaderboard()">
-                    <img src="../img/menu.svg" width="40px" height="40px" >
+                    <img src="../img/leaderboard.svg" width="40px" height="40px" >
                 </div>
                 <div class="menu-button" id="settings-button" onclick="ShowSettings()">
-                    <img src="../img/menu.svg" width="40px" height="40px" >
+                    <img src="../img/settings.svg" width="40px" height="40px" >
                 </div>  
             </div>
             <div class="left-menu-content">
                 <div class='profile not-visible' id='profile'>
-                    <?php include('html/profile.html');?>
+                    <?php include('php/profile.php');?>
                 </div>
                 <div class="route not-visible" id="route">
                     <?php include('html/route.html');?>
@@ -68,6 +67,7 @@
     <script src="../js/menuButtons.js"></script>
     <script src="../js/profileButtons.js"></script>
     <script type="text/javascript">
+        
     var lat = 56.83745;
     var lon = 60.59765;
     const x = document.getElementById("demo");

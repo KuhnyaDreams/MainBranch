@@ -53,3 +53,60 @@
     flex-direction: column;
 
 }
+
+.add-friend-button{
+    
+    width: 150px;
+    height: 53px;
+    border-radius: 13px;
+    background-color: #d9d9d9;
+    margin-left: auto;
+    margin-right: 10px;
+    text-align: center;
+    color: #000;
+    font-size: 16px;
+}
+
+.friend-add{
+    padding-top:15px;
+}
+
+.user-name{
+    width: 163px;
+    height: 66px;
+    margin: 0;
+    color:#000000;
+    font-size: 20px;
+    align-self: center;
+    font-weight:500;
+}
+.avatar-user{
+    border-radius: 13px;
+}
+.user-info{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    margin: 20px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #7e142a;
+}
+
+.achievement{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    border-bottom: 2px solid #7e142a;
+    margin: 20px;
+    padding-bottom: 20px;
+}
+
+.achievement-description{
+    display: flex;
+    flex-direction: column;
+}
+.achievement-logo{
+    background-color:#777;
+    border-radius: 10px;
+}
+
