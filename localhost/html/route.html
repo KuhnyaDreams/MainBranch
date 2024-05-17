@@ -1,14 +1,12 @@
-<div class="route-block">
-  <div class="from-where">
-    <div class="circle" style="background-color: #f00;">
-    </div>
-    <div class="from">
-      <p class="from-where-title">Откуда</p>
-    </div>
-    <div class="circle" style="background-color: #433b3b;">
-    </div>
-    <div class="where">
-      <p class="from-where-title">Куда</p>
-    </div>
+<div class="from-where">
+  <div class="route-searchbar" >
+    <img  src="../img/circle.svg" width ="20px" height="20px" class="circle">
+    <input type="text" placeholder="Откуда" name="search" class="route-searchbar-input" id="routeFrom">
+    <div onclick="CleanInput('routeFrom')"  class="route-search-img"><img  src="../img/close.svg" width ="28px" height="28px"></div>
+  </div>
+  <div class="route-searchbar" >
+    <img  src="../img/circleblack.svg" width ="20px" height="20px" class="circle">
+    <input type="text" placeholder="Куда" name="search" class="route-searchbar-input" id="routeTo">
+    <div onclick="CleanInput('routeTo')" class="route-search-img"><img  src="../img/close.svg" width ="28px" height="28px" > </div>
   </div>
 </div>

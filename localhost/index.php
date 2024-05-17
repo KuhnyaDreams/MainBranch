@@ -6,14 +6,24 @@
         <title>Kuhnya Maps</title>
     </head>
 
-    <body>
+    <body onload="GetLoc();">
         
         <?php
+            $userLogo = 'not-login-user.jpg';
+            if(isset($_COOKIE["userID"])){
+                require_once('php/connectToDB.php');
+                $query=mysqli_query($link,"SELECT * FROM `Users` WHERE `user_id`='".$_COOKIE['userID']."'");
+                $getUser = mysqli_fetch_array($query);
+                if (isset($getUser[7])){
+                    $userLogo = $getUser[7];
+                }
+                mysqli_close($link);
+            }
             include('./html/auth.html');
             include('./html/reg.html');
         ?>
         
-        <div id="map" class="ymaps-layers-pane"></div>
+        <div id="map"></div>
         
         <div class="menu" id="menu" onclick="ShowMenu()">
             <img src="../img/menu.svg" width="40px" height="40px" >
@@ -41,19 +51,17 @@
                     <?php include('html/route.html');?>
                 </div>
                 <div class="leaderboard not-visible" id="leaderboard">
-                    <?php include('html/leaderBoard.html');?>
+                    <?php include('php/leaderboard.php');?>
                 </div>
                 <div class="settings not-visible" id="settings">
-                    <?php include('html/settings.html');?>
+                    <?php include('php/settings.php');?>
                 </div>
             </div>
         </div>
         <div class="searchbar" >
             <input type="text" placeholder="Поиск достопримечательностей" name="search" class="searchbar-input" id="searchbar">
             <div class="search-img">
-                <div ><img  src="../img/search.png"></div>
-                <div class='vert-line'></div>
-                <div onclick="CleanInput()"><img  src="../img/close.svg" width ="28px" height="28px"> </div>
+                <div onclick="CleanInput('searchbar')"><img  src="../img/close.svg" width ="28px" height="28px"> </div>
             </div>
         </div>
         
@@ -62,45 +70,13 @@
         </div>
         
     </body>
+
+    <script src="../js/map.js"></script>
+    <script src="../js/mainFunctions.js"></script>
     <script src="../js/authWindowScript.js"></script>
     <script src="../js/vertMenu.js"></script>
     <script src="../js/menuButtons.js"></script>
+    <script src="../js/settings.js"></script>
     <script src="../js/profileButtons.js"></script>
-    <script type="text/javascript">
-        
-    var lat = 56.83745;
-    var lon = 60.59765;
-    const x = document.getElementById("demo");
-    window.addEventListener('load', function () {
-        getLocation();
-    });
-    function getLocation() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(success);     
-        } else {
-            x.innerHTML = "Geolocation is not supported by this browser.";
-        }
-    }
-    function success(position) {
-        lat = position.coords.latitude;
-        lon = position.coords.longitude;
-        ymaps.ready(init);
-    }
     
-
-
-    function init () {
-        myMap = new ymaps.Map('map', {
-            center: [lat,lon],
-            zoom: 14,
-            controls: []
-        });
-    }
-
-    let search = document.getElementById('searchbar');
-    function CleanInput(){
-        search.value="";
-    }
-    </script>
-
 </html>

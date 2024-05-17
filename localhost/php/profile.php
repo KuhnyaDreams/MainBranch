@@ -1,12 +1,21 @@
 <div class="profile-frame">
-    <div class="avatar">
-        <img src="img/avatar.jpg" alt="avatar" width="80px" height="80px">
-    </div>
+    <?php
+        if(!isset($_COOKIE["userlogin"])){ 
+            echo'<div class="need-auth">
+                Для полноцнного использования сайта необходима авторизация
+            </div>';
+        }else{    
+            echo'<div class="avatar">
+                    <img src="../userContent/'.$userLogo.'" alt="avatar" width="80px" height="80px">
+                </div>
 
-    <div class="profile-name">
-        <div class="user-name">Логин: <span id="loginProfile"><?php if(isset($_COOKIE["userlogin"])){ echo $_COOKIE["userlogin"];} ?></span></div>
-        <div class="invite-code">Код для друзей <span id="loginID"><?php if(isset($_COOKIE["userID"])){  echo $_COOKIE["userID"];} ?></span></div>
-    </div>
+                <div class="profile-name">
+                    <div class="user-name">Логин: <span id="loginProfile">'.$_COOKIE["userlogin"].'</span></div>
+                    <div class="invite-code">Код для друзей <span id="loginID">'.$_COOKIE["userID"].'</span></div>
+                </div>
+            ';
+        }
+    ?>
 </div>
 
 <div class="profile-info">
@@ -17,7 +26,14 @@
     <div class="profile-item" id="friends" ><span>Друзья</span></div>
 </div>
 
+<?php
+if(!isset($_COOKIE["userlogin"])){ 
+    echo'<div class="need-auth">
+        Для полноцнного использования сайта необходима авторизация
+    </div>';
+}else{
 
+echo'
 <div class="want-visit not-visible">
     <div class="landmark">
         <div class="lanmark-info">  
@@ -101,12 +117,13 @@
 
     <div class="friendlist-placement">
         <div class="user-info">
-            <img src="./img/not-login-user.jpg" alt="avatar" class="avatar-user">
+            <img src="./img/not-login-user.jpg" alt="avatar" class="avatar-user"  width="80px" height="80px">
 
             <div class="user-name" >
                 Логин пользователя
             </div>
         </div>
     </div>
-
-</div>
+ 
+</div>';}
+?>

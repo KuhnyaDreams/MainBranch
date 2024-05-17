@@ -1,3 +1,4 @@
+
 let regForm = document.getElementById("regForm");
 let authForm = document.getElementById("authForm");
 let backgrounds = document.querySelectorAll('.form-back');
@@ -11,13 +12,26 @@ function ChangeToAuth(){
     authForm.className="form-back visible";
 }
 function ShowAuth(){
-    if (authForm.className=="form-back visible" || regForm.className=="form-back visible")
-    {
-        regForm.className="form-back not-visible";
-        authForm.className="form-back not-visible";
+    if(!getCookie('userlogin')){
+        if (authForm.className=="form-back visible" || regForm.className=="form-back visible")
+        {
+            regForm.className="form-back not-visible";
+            authForm.className="form-back not-visible";
+        }
+        else
+            authForm.className="form-back visible";
+    }else{
+        let profileBlock = document.getElementById('profile');
+        let menu = document.querySelector('.left-menu');
+        
+        if (profileBlock.className == 'profile not-visible' && menu.className =="left-menu"){
+            ShowAccount();
+        }
+        if ((profileBlock.className == 'profile' && menu.className =="left-menu") || (profileBlock.className == 'profile not-visible' && menu.className =="left-menu not-visible")){
+            ShowMenu();
+            ShowAccount();
+        }
     }
-    else
-        authForm.className="form-back visible";
 }
 for (let back of backgrounds){
     for (let c of containers){
@@ -55,10 +69,7 @@ regbt.onclick = function(){
         });
     }
 }
-function getCookie(name) {
-	var matches = document.cookie.match(new RegExp("(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"));
-	return matches ? decodeURIComponent(matches[1]) : undefined;
-}
+
 
 let logbt = document.getElementById('logButton');
 let authlogin = document.getElementById('authlogin');
