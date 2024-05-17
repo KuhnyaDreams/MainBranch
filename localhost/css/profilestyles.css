@@ -9,6 +9,14 @@
     flex-direction: column;
     
 }
+.avatar>img{
+
+    background-color: #d4d4d4;
+    position: relative;
+    top:50%;
+    transform: translateY(-50%);
+    border-radius: 13px;
+}
 .profile-info{
     display: flex;
     flex-direction: row;
@@ -40,18 +48,6 @@
     text-align: center;
     margin: auto;
     width: 100%;
-}
-.landmark{
-    margin:10px ;
-    padding: 5px;
-    display: flex;
-    flex-direction: row;
-    border-bottom: 2px solid #7e142a;
-}
-.landmark-info{
-    display: flex;
-    flex-direction: column;
-
 }
 
 .add-friend-button{
