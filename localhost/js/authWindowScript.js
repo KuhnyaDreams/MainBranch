@@ -1,7 +1,7 @@
 
 let regForm = document.getElementById("regForm");
 let authForm = document.getElementById("authForm");
-let backgrounds = document.querySelectorAll('.form-back');
+let backgrounds = [regForm,authForm];
 let containers = document.querySelectorAll('.container');
 function ChangeToReg(){
     authForm.className="form-back not-visible";
@@ -76,7 +76,6 @@ let authlogin = document.getElementById('authlogin');
 let authpsw = document.getElementById('authpassword');
 
 logbt.onclick = function(){
-
     console.log(authlogin.value, authpsw.value);
     $.ajax({
         type: "POST",

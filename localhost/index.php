@@ -4,10 +4,14 @@
     <head>
         <?php include('html/links.html');?>
         <title>Kuhnya Maps</title>
+        <link rel="icon" href="favicon.png">
     </head>
 
-    <body onload="GetLoc();">
-        
+    <body onload="GetLoc()">
+        <!--<div class="debugCoords">
+            <p>lat: <span id='lat'></span></p>
+            <p>lon: <span id='lon'></span></p>
+        </div>-->
         <?php
             $userLogo = 'not-login-user.jpg';
             if(isset($_COOKIE["userID"])){
@@ -19,8 +23,9 @@
                 }
                 mysqli_close($link);
             }
-            include('./html/auth.html');
-            include('./html/reg.html');
+            include('html/auth.html');
+            include('html/reg.html');
+            include('html/addFriend.html');
         ?>
         
         <div id="map"></div>
