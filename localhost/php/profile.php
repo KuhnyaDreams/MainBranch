@@ -109,21 +109,38 @@ echo'
         </div>
     </div>
 </div>
-
 <div class="friends not-visible">
-    <div class="add-friend-button">
+    <div class="add-friend-button" onclick="showFriendAdd()">
         <p class="friend-add">Добавить друга</p>
     </div>
+    <div overflow="auto">
 
-    <div class="friendlist-placement">
-        <div class="user-info">
-            <img src="./img/not-login-user.jpg" alt="avatar" class="avatar-user"  width="80px" height="80px">
+    '; 
 
-            <div class="user-name" >
-                Логин пользователя
+    require('connectToDB.php');
+    $query=mysqli_query($link,"SELECT * FROM `friends` WHERE `user_id`=".$_COOKIE['userID']);
+    $resultSet = mysqli_fetch_all($query, MYSQLI_BOTH);
+    
+    foreach($resultSet as $id => $row){
+        $userid = $row['friend_id'];
+        $query=mysqli_query($link,"SELECT * FROM `users` WHERE `user_id`=".$userid);
+        $res = mysqli_fetch_array($query);
+        $username = $res['Login'];
+        $userLogo = $res['User_logo'];
+        echo '
+        <div class="friendlist-placement">
+            <div class="user-info">
+                <img src="./userContent/'.$userLogo.'" alt="avatar" class="avatar-user"  width="80px" height="80px">
+
+                <div class="user-name" >
+                    '.$username.'
+                </div>
             </div>
         </div>
-    </div>
- 
-</div>';}
+        ';
+    }
+    mysqli_close($link);
+}
+echo'</div>
+</div>';
 ?>

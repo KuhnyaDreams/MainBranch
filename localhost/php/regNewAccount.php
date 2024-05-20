@@ -8,7 +8,7 @@
         $numrows=mysqli_num_rows($query);
         if($numrows==0)
         {
-            $sql = "INSERT INTO `Users` (`login`, `password`) VALUES ('$login', '$psw')";
+            $sql = "INSERT INTO `Users` (`login`, `password`, `User_logo`) VALUES ('$login', '$psw', 'not-login-user.jpg')";
             mysqli_query($link, $sql);
             $query=mysqli_query($link,"SELECT * FROM `Users` WHERE `login`='$login' AND `password`='$psw'");
             $getUser = mysqli_fetch_array($query);

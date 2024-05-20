@@ -19,3 +19,36 @@ for (let b of buttons){
         }
     }
 }
+
+function showFriendAdd(){ 
+    $('#addFriend').toggleClass('not-visible');  
+}
+
+$("#friendCode").keyup(function(event){
+    if(event.keyCode == 13){
+        console.log(getCookie('userID'));
+        event.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: '../php/addFriend.php',
+            data: {user:getCookie('userID'), friend:$('#friendCode').val()},
+            success: function (response) {
+                console.log(response);
+                location.reload();
+            },
+            error: function(){
+                console.log('eeror');
+            },
+        });
+    }
+});
+
+$('#addFriend').click(function(e) {
+    if(e.target != $('#addForm')) {
+        showFriendAdd();
+    }
+});
+$('#addForm').click(function(e){
+    e.stopPropagation();
+}
+);
