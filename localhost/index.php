@@ -35,6 +35,9 @@
         </div>
         <div class = 'left-menu not-visible'>
             <div class = 'vertical-menu'>
+                <div class="menu-button" id="locations-button" onclick="ShowLocations()">
+                    <img src="../img/route.svg" width="40px" height="40px" >
+                </div>
                 <div class="menu-button" id="route-button" onclick="ShowRoute()">
                     <img src="../img/route.svg" width="40px" height="40px" >
                 </div>
@@ -49,16 +52,19 @@
                 </div>  
             </div>
             <div class="left-menu-content">
-                <div class='profile not-visible' id='profile'>
+                <div class='menu-content not-visible' id='locations'>
+                    <?php include('php/locationsList.php');?>
+                </div>
+                <div class='menu-content not-visible' id='profile'>
                     <?php include('php/profile.php');?>
                 </div>
-                <div class="route not-visible" id="route">
+                <div class="menu-content not-visible" id="route">
                     <?php include('html/route.html');?>
                 </div>
-                <div class="leaderboard not-visible" id="leaderboard">
+                <div class="menu-content not-visible" id="leaderboard">
                     <?php include('php/leaderboard.php');?>
                 </div>
-                <div class="settings not-visible" id="settings">
+                <div class="menu-content not-visible" id="settings">
                     <?php include('php/settings.php');?>
                 </div>
             </div>

@@ -2,67 +2,67 @@ let routeBlock = document.getElementById('route');
 let leaderBlock = document.getElementById('leaderboard');
 let profileBlock = document.getElementById('profile');
 let settingsBlock = document.getElementById('settings');
+let locationsBlock = document.getElementById('locations');
+let blocks = document.querySelectorAll('.menu-content');
+
+function HideAll(){
+    blocks.forEach(element => {
+        element.classList.add('not-visible');
+    });
+}
+
 function ShowRoute(){
-    if (routeBlock.className == 'route not-visible')
+    if (routeBlock.classList[1] == 'not-visible')
     {
-        leaderBlock.classList.add('not-visible');
-        profileBlock.classList.add('not-visible');
-        settingsBlock.classList.add('not-visible');
+        HideAll();
         routeBlock.classList.remove('not-visible');
     }
     else
     {
-        settingsBlock.classList.add('not-visible');
-        leaderBlock.classList.add('not-visible');
-        profileBlock.classList.add('not-visible');
-        routeBlock.classList.add('not-visible');
+        HideAll();
     }
 }
 function ShowLeaderboard(){
-    if (leaderBlock.className == 'leaderboard not-visible')
+    if (leaderBlock.classList[1] == 'not-visible')
     {
-        settingsBlock.classList.add('not-visible');
+        HideAll();
         leaderBlock.classList.remove('not-visible');
-        profileBlock.classList.add('not-visible');
-        routeBlock.classList.add('not-visible');
     }
     else
     {
-        settingsBlock.classList.add('not-visible');
-        leaderBlock.classList.add('not-visible');
-        profileBlock.classList.add('not-visible');
-        routeBlock.classList.add('not-visible');
+        HideAll();
     }
 }
 function ShowAccount(){
-    if (profileBlock.className == 'profile not-visible')
+    if (profileBlock.classList[1] == 'not-visible')
     {
-        settingsBlock.classList.add('not-visible');
-        leaderBlock.classList.add('not-visible');
+        HideAll();
         profileBlock.classList.remove('not-visible');
-        routeBlock.classList.add('not-visible');
     }
     else
     {
-        settingsBlock.classList.add('not-visible');
-        leaderBlock.classList.add('not-visible');
-        profileBlock.classList.add('not-visible');
-        routeBlock.classList.add('not-visible');
+        HideAll();
     }
 }
 function ShowSettings(){
-    if (settingsBlock.className == 'settings not-visible')
+    if (settingsBlock.classList[1] == 'not-visible')
     {
+        HideAll();
         settingsBlock.classList.remove('not-visible');
-        leaderBlock.classList.add('not-visible');
-        profileBlock.classList.add('not-visible');
-        routeBlock.classList.add('not-visible');
     }
     else
     {
-        settingsBlock.classList.add('not-visible');
-        leaderBlock.classList.add('not-visible');
-        profileBlock.classList.add('not-visible');
-        routeBlock.classList.add('not-visible');
+        HideAll();
+    }
+}
+function ShowLocations(){
+    if (locationsBlock.classList[1] == 'not-visible')
+    {
+        HideAll();
+        locationsBlock.classList.remove('not-visible');
+    }
+    else
+    {
+        HideAll();
     }
 }

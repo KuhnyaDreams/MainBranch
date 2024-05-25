@@ -8,5 +8,4 @@ function ShowMenu(){
     }else{
         menu.classList.add('not-visible');
     }
-
 }

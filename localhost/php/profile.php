@@ -113,8 +113,7 @@ echo'
     <div class="add-friend-button" onclick="showFriendAdd()">
         <p class="friend-add">Добавить друга</p>
     </div>
-    <div overflow="auto">
-
+    <div class="friends-box">
     '; 
 
     require('connectToDB.php');
@@ -123,24 +122,24 @@ echo'
     
     foreach($resultSet as $id => $row){
         $userid = $row['friend_id'];
-        $query=mysqli_query($link,"SELECT * FROM `users` WHERE `user_id`=".$userid);
+        $query=mysqli_query($link,"SELECT * FROM `Users` WHERE `user_id`=".$userid);
         $res = mysqli_fetch_array($query);
-        $username = $res['Login'];
-        $userLogo = $res['User_logo'];
+        $friendname = $res['Login'];
+        $friendLogo = $res['User_logo'];
         echo '
         <div class="friendlist-placement">
             <div class="user-info">
-                <img src="./userContent/'.$userLogo.'" alt="avatar" class="avatar-user"  width="80px" height="80px">
+                <img src="./userContent/'.$friendLogo.'" alt="avatar" class="avatar-user"  width="80px" height="80px">
 
                 <div class="user-name" >
-                    '.$username.'
+                    '.$friendname.'
                 </div>
             </div>
         </div>
         ';
     }
     mysqli_close($link);
+    echo'</div>
+    </div>';
 }
-echo'</div>
-</div>';
 ?>
