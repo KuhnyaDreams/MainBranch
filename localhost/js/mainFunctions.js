@@ -7,3 +7,6 @@ function getCookie(name) {
 function CleanInput(id){
     document.getElementById(id).value="";
 }
+
+
+

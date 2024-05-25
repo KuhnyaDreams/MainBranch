@@ -1,9 +1,8 @@
 var lat = 56.83745;
 var lon = 60.59765;
-var map = L.map('map', {attributionControl: false, zoomControl: false });
+var map = L.map('map', {attributionControl: false, zoomControl: false }).setView([lat, lon], 13);;
 function GetLoc()
 {
-    
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(success);     
     } else {
@@ -11,14 +10,29 @@ function GetLoc()
     }
 }
 function success(position) {
-    console.log('loaded');
     lat = position.coords.latitude;
     lon = position.coords.longitude;
     map.setView([lat, lon], 13);
     $('#lat').text(lat);
     $('#lon').text(lon);
+    $.ajax({
+        type: "POST",
+        url: '../php/loadPins.php',
+        data: {},
+        success: function (response) {
+            for (var i = 0; i < response.length; i++) 
+            {
+                marker = new L.marker([response[i][0], response[i][1]])
+                    .bindPopup(response[i][2])
+                    .addTo(map);
+            }
+        },
+        error: function(){
+            console.log('eeror markers');
+        },
+    });
 }
-
+/*
 L.Routing.control({
     waypoints: [
       L.latLng(56.7826,60.6361),
@@ -28,6 +42,9 @@ L.Routing.control({
     routeWhileDragging: true
   }).addTo(map);
 $('.leaflet-routing-container').hide();
+*/
+
+
 var myAttrControl = L.control.attribution().addTo(map);
 myAttrControl.setPrefix('<a href="https://leafletjs.com/">Leaflet</a>');
 

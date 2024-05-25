@@ -30,6 +30,7 @@
     font-size: 24px;
 }
 .active{
+    padding-bottom: 4px;
     border-bottom: 3px solid #7e142a;
     transition: border 0.05s ease 0.05s;  
 }
@@ -49,6 +50,14 @@
     margin: auto;
     width: 100%;
 }
+.friends{
+    height:calc(100% - 220px);
+}
+.friends-box{
+    height: calc(100% - 50px);
+    overflow: auto;  
+}   
+
 
 .add-friend-button{
     
