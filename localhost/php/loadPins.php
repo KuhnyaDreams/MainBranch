@@ -3,7 +3,7 @@
     require_once('connectToDB.php');
 
 
-    $query=mysqli_query($link,"SELECT `position`, `name` FROM `Pins`");
+    $query=mysqli_query($link,"SELECT `position`, `pin_id` FROM `Pins`");
     $pins = mysqli_fetch_all($query);
     $pinpos =array();
     foreach ($pins as $pos){

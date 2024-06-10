@@ -26,6 +26,7 @@
             include('html/auth.html');
             include('html/reg.html');
             include('html/addFriend.html');
+            include('php/locationInfo.php');
         ?>
         
         <div id="map"></div>
@@ -36,9 +37,6 @@
         <div class = 'left-menu not-visible'>
             <div class = 'vertical-menu'>
                 <div class="menu-button" id="locations-button" onclick="ShowLocations()">
-                    <img src="../img/route.svg" width="40px" height="40px" >
-                </div>
-                <div class="menu-button" id="route-button" onclick="ShowRoute()">
                     <img src="../img/route.svg" width="40px" height="40px" >
                 </div>
                 <div class="menu-button" id="account-button" onclick="ShowAccount()">
@@ -89,5 +87,5 @@
     <script src="../js/menuButtons.js"></script>
     <script src="../js/settings.js"></script>
     <script src="../js/profileButtons.js"></script>
-    
+    <script src="../js/locationInfo.js"></script>
 </html>

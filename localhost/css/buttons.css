@@ -1,0 +1,42 @@
+.active{
+    padding-bottom: 4px;
+    border-bottom: 3px solid #7e142a;
+    transition: border 0.05s ease 0.05s;  
+}
+.buttons-tab{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 50px;
+    background-color: #d4d4d4;
+}
+.buttons-square{
+    display: flex;
+    flex-direction: row;
+    vertical-align: middle;
+    align-items: center;
+    justify-content: space-between;
+    height: 50px;
+}
+.button-square{
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #d4d4d4;
+}
+.button-item{
+    display: flex;
+    height: 50px;
+    width: 80px;
+    font-size: 12px;
+    background-color: #d4d4d4;
+}
+.button-item:hover{
+    background-color: #e4e4e4;
+}
+
+.button-item>span{
+    text-align: center;
+    margin: auto;
+    width: 100%;
+}

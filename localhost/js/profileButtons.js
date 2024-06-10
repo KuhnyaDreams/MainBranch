@@ -1,4 +1,4 @@
-let buttons = document.querySelectorAll('.profile-item');
+let buttons = document.getElementById('profile-buttons').querySelectorAll('.button-item');
 
 for (let b of buttons){
     b.onclick = function(){

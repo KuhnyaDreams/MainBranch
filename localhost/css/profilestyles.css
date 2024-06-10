@@ -17,39 +17,11 @@
     transform: translateY(-50%);
     border-radius: 13px;
 }
-.profile-info{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
-    height: 50px;
-    background-color: #d4d4d4;
 
-}
 .user-name{
     font-size: 24px;
 }
-.active{
-    padding-bottom: 4px;
-    border-bottom: 3px solid #7e142a;
-    transition: border 0.05s ease 0.05s;  
-}
-.profile-item{
-    display: flex;
-    height: 50px;
-    width: 80px;
-    font-size: 12px;
-    background-color: #d4d4d4;
-}
-.profile-item:hover{
-    background-color: #e4e4e4;
-}
 
-.profile-item>span{
-    text-align: center;
-    margin: auto;
-    width: 100%;
-}
 .friends{
     height:calc(100% - 220px);
 }
@@ -57,7 +29,25 @@
     height: calc(100% - 50px);
     overflow: auto;  
 }   
+/* width */
+::-webkit-scrollbar {
+    width: 6px;
+}
 
+/* Track */
+::-webkit-scrollbar-track {
+    background: #D9D9D9; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #737479; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
 
 .add-friend-button{
     
