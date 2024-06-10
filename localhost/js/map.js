@@ -9,9 +9,17 @@ function GetLoc()
         x.innerHTML = "Geolocation is not supported by this browser.";
     }
 }
+
+function openHover(e){
+    openMore(e.target.options.id);
+}
+function closeHover(){
+    closeMore();
+}
 function success(position) {
-    lat = position.coords.latitude;
-    lon = position.coords.longitude;
+    var lat = position.coords.latitude;
+    var lon = position.coords.longitude;
+    
     map.setView([lat, lon], 13);
     $('#lat').text(lat);
     $('#lon').text(lon);
@@ -22,9 +30,9 @@ function success(position) {
         success: function (response) {
             for (var i = 0; i < response.length; i++) 
             {
-                marker = new L.marker([response[i][0], response[i][1]])
-                    .bindPopup(response[i][2])
-                    .addTo(map);
+                marker = new L.marker([response[i][0], response[i][1]],{id:response[i][2]})
+                .on("mouseover", openHover).on("mouseout", closeHover)
+                .addTo(map);
             }
         },
         error: function(){

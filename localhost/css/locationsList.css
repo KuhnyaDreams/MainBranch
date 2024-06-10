@@ -1,0 +1,89 @@
+.location-container{
+    height: 100%;
+}
+.location-list{
+    padding:0 10px;
+    overflow: auto;
+}
+.location-card{
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #7e142a;
+}
+.location-image{   
+    width: 380px;
+    height: 200px;
+}
+.location-image img{
+    object-fit: cover;
+}
+.location-text{
+    padding-left: 10px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.location-name{
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: normal;
+    color: #000;
+    margin: 0;
+}
+.location-small-text{
+    flex-grow: 0;
+    font-family: Inter;
+    font-size: 11px;
+    font-weight: normal;
+    color: #726767;
+    margin:0;
+}
+
+.location-info{
+    background-color: #fff;
+    width: 380px;
+    height: 500px;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    top:90px;
+    left: 530px;
+    z-index:60;
+}
+.location-buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 15px;
+}
+.location-buttons .buttons-tab{
+    border-radius: 10px;
+    
+}
+.location-buttons .button-item{
+    border-radius: 10px;
+}
+.location-buttons .buttons-square{
+    gap: 10px;
+}
+
+.landmark{
+    margin:10px ;
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 2px solid #7e142a;
+}
+.landmark-info{
+    display: flex;
+    flex-direction: column;
+    width: 208px;
+}
+.photo-landmark{
+    object-fit: cover;
+}

@@ -18,12 +18,12 @@
     ?>
 </div>
 
-<div class="profile-info">
-    <div class="profile-item" id="my-pins" ><span> Мои места </span></div>
-    <div class="profile-item" id="achievements" ><span>Достижения </span></div>
-    <div class="profile-item" id="want-visit" ><span>Хочу песетить </span></div>
-    <div class="profile-item" id="favorite" ><span>Любимое</span></div>
-    <div class="profile-item" id="friends" ><span>Друзья</span></div>
+<div class="buttons-tab" id="profile-buttons">
+    <div class="button-item" id="my-pins" ><span> Мои места </span></div>
+    <div class="button-item" id="achievements" ><span>Достижения </span></div>
+    <div class="button-item" id="want-visit" ><span>Хочу песетить </span></div>
+    <div class="button-item" id="favorite" ><span>Любимое</span></div>
+    <div class="button-item" id="friends" ><span>Друзья</span></div>
 </div>
 
 <?php
