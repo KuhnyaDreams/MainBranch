@@ -1,6 +1,7 @@
 var lat = 56.83745;
 var lon = 60.59765;
-var map = L.map('map', {attributionControl: false, zoomControl: false }).setView([lat, lon], 13);;
+var map = L.map('map', {attributionControl: false
+    , zoomControl: false }).setView([lat, lon], 13);
 function GetLoc()
 {
     if (navigator.geolocation) {
@@ -17,21 +18,34 @@ function closeHover(){
     closeMore();
 }
 function success(position) {
-    if (position!=null){
+    if (position!==null){
         lat = position.coords.latitude;
         lon = position.coords.longitude;
     }
+    var LeafIcon = L.Icon.extend({
+        options: {
+           iconSize:     [50, 60],
+           shadowSize:   [45, 50],
+           iconAnchor:   [5, 72],
+           shadowAnchor: [3, 62],
+           popupAnchor:  [-3, -76]
+        }
+    });
+    var customIcon = new LeafIcon({
+        iconUrl: '../img/ICONnew.png',
+        shadowUrl:'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png'
+    })
     map.setView([lat, lon], 13);
     $('#lat').text(lat);
     $('#lon').text(lon);
     $.ajax({
         type: "POST",
         url: '../php/loadPins.php',
-        data: {},
+        data: {type:'markers'},
         success: function (response) {
             for (var i = 0; i < response.length; i++) 
             {
-                marker = new L.marker([response[i][0], response[i][1]],{id:response[i][2]})
+                marker = new L.marker([response[i][0], response[i][1]],{id:response[i][2], icon:customIcon})
                 .on("mouseover", openHover).on("mouseout", closeHover)
                 .addTo(map);
             }

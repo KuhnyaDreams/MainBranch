@@ -3,7 +3,7 @@
     require('connectToDB.php');
     $login = $_POST['login'];
     $psw = $_POST['password'];
-    $query=mysqli_query($link,"SELECT * FROM `Users` WHERE `login`='$login' AND `password`='$psw'");
+    $query=mysqli_query($link,"SELECT * FROM `users` WHERE `login`='$login' AND `password`='$psw'");
     $numrows=mysqli_num_rows($query);
     if($numrows>0)
     {
