@@ -46,7 +46,7 @@
 .location-info{
     background-color: #fff;
     width: 380px;
-    height: 500px;
+    max-height: 800px;
     position: absolute;
     margin: 0;
     padding: 0;
@@ -58,7 +58,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 15px;
+    
 }
 .location-buttons .buttons-tab{
     border-radius: 10px;
@@ -86,4 +86,26 @@
 }
 .photo-landmark{
     object-fit: cover;
+}
+.location-info-text{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 15px;
+    padding-top: 0;
+}
+.location-info-name{
+    margin: 0;
+    font-size: 24px;
+    font-weight: normal;
+}
+.location-info-tags{
+    font-size: 12px;
+    margin: 0;
+    color:#726767;
+}
+.location-info-desc{
+    max-height:400px;
+    overflow: auto;
+    font-size: 16px;
 }

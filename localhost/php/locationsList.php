@@ -1,7 +1,7 @@
 <div class="location-list">
-    <?php
-    require_once('connectToDB.php');
-    $query=mysqli_query($link,"SELECT * FROM `Pins` ORDER BY pin_id LIMIT 10");
+    <?php 
+    require('connectToDB.php');
+    $query=mysqli_query($link,"SELECT * FROM `Pins` ORDER BY `pin_id` LIMIT 10");
     $pins = mysqli_fetch_all($query);
     foreach ($pins as $pos){      
         $temp =explode(", ",$pos[2]);
@@ -26,5 +26,6 @@
         ";
     }
     mysqli_close($link);
+
     ?>
 </div>

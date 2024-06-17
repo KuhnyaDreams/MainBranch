@@ -1,6 +1,6 @@
 <?php
     header('Content-Type: application/json');
-    require_once('connectToDB.php');
+    require('connectToDB.php');
     $id = $_POST['pin_id'];
     $query=mysqli_query($link,"SELECT * FROM `Pins` WHERE `Pin_id`='$id'");
     $response = mysqli_fetch_array($query);

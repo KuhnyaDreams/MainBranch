@@ -1,6 +1,6 @@
 <?php
     header('Content-Type: application/json');
-    require_once('connectToDB.php');
+    require('connectToDB.php');
     $login = $_POST['login'];
     $psw = $_POST['password'];
     $query=mysqli_query($link,"SELECT * FROM `Users` WHERE `login`='$login' AND `password`='$psw'");
