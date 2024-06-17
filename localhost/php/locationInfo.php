@@ -13,8 +13,8 @@
                 <div class="button-item" id="schedule"><span>Расписание</span></div>
             </div>
             <div class="buttons-square">
-                <div class="button-square"></div>
-                <div class="button-square"></div>
+                <div class="button-square" id='addToWish'></div>
+                <div class="button-square" id='addToFav'></div>
             </div>
         </div>   
         <div class="location-info-desc"><span id="locationInfoDesc"></span></div>

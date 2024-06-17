@@ -8,6 +8,12 @@ let descButtons = document.getElementById('descButtons').querySelectorAll('.butt
 let addressButton = document.getElementById('address');
 let descButton = document.getElementById('desc');
 let scheduleButton = document.getElementById('schedule');
+
+let addToFav = document.getElementById('addToFav');
+let addToWish = document.getElementById('addToWish');
+
+let favList = document.getElementById('favList');
+let wishList = document.getElementById('wishList');
 var previousPin;
 var delay=0;
 
@@ -98,8 +104,75 @@ function closeMore(){
     if (delay < 20){
         locationBlock.style.outline = 'none';
         locationBlock.classList.add('not-visible'); 
-        clearInterval(timer); 
+        clearInterval(timer);
         delay = 0;
     }
 }
 
+addToFav.onclick = function(){
+    console.log(locationinfoID.textContent);
+    if(getCookie('userID')!==null){
+        $.ajax({
+            type: "POST",
+            url: '../php/addToFavourites.php',
+            data: {user:getCookie('userID'),pin_id:locationinfoID.textContent},
+            success: function (response) {
+                favList.innerHTML = "";
+                response.forEach(element => {
+                    var div = document.createElement('div');
+                    div.innerHTML=`<div class='landmark' onclick='openMore(`+element[0]+`)'>
+                        <div class='landmark-info'>  
+                            <div class='landmark-name'>
+                                <div>`+element[1]+`</div>
+                            </div>
+
+                            <div class='landmark-description'>
+                                <div>`+element[7]+`</div>
+                            </div>
+
+                            <div class='landmark-misc'>
+                                <div>`+element[5]+element[6]+`</div>
+                            </div>
+                        </div>
+                        <img class='photo-landmark' src='`+element[4]+`' alt='photo landmark' width='166px' height='110px'>
+                    </div>`;
+                    favList.appendChild(div);
+                });
+            },
+        });
+    }
+}
+addToWish.onclick = function(){
+    console.log(locationinfoID.textContent);
+    if(getCookie('userID')!==null){
+        $.ajax({
+            type: "POST",
+            url: '../php/addToWishlist.php',
+            data: {user:getCookie('userID'),pin_id:locationinfoID.textContent},
+            success: function (response) {
+                wishList.innerHTML = "";
+                response.forEach(element => {
+                    var div = document.createElement('div');
+                    div.innerHTML=`<div class='landmark' onclick='openMore(`+element[0]+`)'>
+                        <div class='landmark-info'>  
+                            <div class='landmark-name'>
+                                <div>`+element[1]+`</div>
+                            </div>
+
+                            <div class='landmark-description'>
+                                <div>`+element[7]+`</div>
+                            </div>
+
+                            <div class='landmark-misc'>
+                                <div>`+element[5]+element[6]+`</div>
+                            </div>
+                        </div>
+                        <img class='photo-landmark' src='`+element[4]+`' alt='photo landmark' width='166px' height='110px'>
+                    </div>`;
+                    wishList.appendChild(div);
+                });  
+            },
+
+        });
+    }
+}

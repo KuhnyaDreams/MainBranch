@@ -5,9 +5,9 @@
     $friend = $_POST['friend'];
     $query=mysqli_query($link,"SELECT * FROM `friends` WHERE `user_id`='$user' AND `friend_id`='$friend'");
     $numrows=mysqli_num_rows($query);
-    if($numrows==0)
+    if($numrows==0 && $user !== $friend)
     {
-        $query=mysqli_query($link,"SELECT * FROM `Users` WHERE `user_id`='$friend'");
+        $query=mysqli_query($link,"SELECT * FROM `users` WHERE `id`='$friend'");
         $numrows=mysqli_num_rows($query);
         if($numrows!=0)
         {   
@@ -20,6 +20,15 @@
     {
         $response = "error";
     }
-    echo json_encode($response);
+    $friendsData = array();
+    $query=mysqli_query($link,"SELECT * FROM `friends` WHERE `user_id`=".$_COOKIE['userID']);
+    $resultSet = mysqli_fetch_all($query);
+    foreach($resultSet as $id => $row){
+        $userid = $row[1];
+        $query=mysqli_query($link,"SELECT `Login`,`id`,`User_logo` FROM `users` WHERE `id`=".$userid);
+        $res = mysqli_fetch_array($query);
+        array_push($friendsData, $res);
+    }
+    echo json_encode($friendsData);
     mysqli_close($link);
 ?>

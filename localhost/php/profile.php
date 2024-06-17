@@ -7,7 +7,7 @@
             </div>';
         }else{   
             require('connectToDB.php');
-            $query=mysqli_query($link,"SELECT * FROM `Users` WHERE `user_id`='".$_COOKIE['userID']."'");
+            $query=mysqli_query($link,"SELECT * FROM `users` WHERE `id`='".$_COOKIE['userID']."'");
             $getUser = mysqli_fetch_array($query);
             if (isset($getUser[7])){
                 $userLogo = $getUser[7];
@@ -31,59 +31,61 @@
 
 <div class="buttons-tab" id="profile-buttons">
     <div class="button-item" id="achievements" ><span>Достижения</span></div>
-    <div class="button-item" id="want-visit" ><span>Хочу песетить </span></div>
+    <div class="button-item" id="wishlist" ><span>Хочу песетить </span></div>
     <div class="button-item" id="favorite" ><span>Любимое</span></div>
     <div class="button-item" id="friends" ><span>Друзья</span></div>
 </div>
 
 <?php
+
+function loadPins($where){
+    require('connectToDB.php');
+    $query=mysqli_query($link,"SELECT `pins_id` FROM `".$where."` WHERE `user_id`=".$_COOKIE['userID']);
+    $result = mysqli_fetch_all($query);
+    if (isset($result)){
+        foreach($result as $r){
+            $query=mysqli_query($link,"SELECT * FROM `pins` WHERE `id`=".$r[0]);
+            $result = mysqli_fetch_array($query);
+            echo"
+            <div class='landmark' onclick='openMore(".$result[0].")'>
+                <div class='landmark-info'>  
+                    <div class='landmark-name'>
+                        <div>".$result[1]."</div>
+                    </div>
+
+                    <div class='landmark-description'>
+                        <div>".$result[7]."</div>
+                    </div>
+
+                    <div class='landmark-misc'>
+                        <div>".$result[5]."
+                        ".$result[6]."</div>
+                    </div>
+                </div>
+                <img class='photo-landmark' src='".$result[4]."' alt='photo landmark' width='166px' height='110px'>
+            </div>
+            ";
+        }
+    }
+    
+    mysqli_close($link);
+}
+
 if(!isset($_COOKIE["userlogin"])){ 
     echo'<div class="need-auth">
         Для полноцнного использования сайта необходима авторизация
     </div>';
 }else{
 echo'
-<div class="want-visit not-visible">
-    <div class="landmark">
-        <div class="lanmark-info">  
-            <div class="landmark-name">
-                <div >Ельцин Центр</div>
-            </div>
-
-            <div class="landmark-description">
-                <div>Культурный центр, музей</div>
-            </div>
-
-            <div class="landmark-misc">
-                <div>Открыто до 21:00
-                    Ул.Бориса Ельцина, 3</div>
-            </div>
-        </div>
-        <div class="photo-landmark">
-            <img src="img/photo-landmark.jpg" alt="photo landmark" width="170px" height="110px">
-        </div>
-    </div>
+<div class="location-list wishlist not-visible" id="wishList">
+';
+    loadPins('wish');
+echo'
 </div>
-<div class="favorite not-visible">
-    <div class="landmark">
-        <div class="lanmark-info">  
-            <div class="landmark-name">
-                <div >Ельцин Центр</div>
-            </div>
-
-            <div class="landmark-description">
-                <div>Культурный центр, музей</div>
-            </div>
-
-            <div class="landmark-misc">
-                <div>Открыто до 21:00
-                    Ул.Бориса Ельцина, 3</div>
-            </div>
-        </div>
-        <div class="photo-landmark">
-            <img src="img/photo-landmark.jpg" alt="photo landmark" width="170px" height="110px">
-        </div>
-    </div>
+<div class="location-list favorite not-visible" id="favList">
+';
+    loadPins('favourite');
+echo'
 </div>
 
 <div class="achievements not-visible">
@@ -102,7 +104,7 @@ echo'
     <div class="add-friend-button" onclick="showFriendAdd()">
         <p class="friend-add">Добавить друга</p>
     </div>
-    <div class="friends-box">
+    <div class="friends-box" id="friendsList">
     '; 
 
     require('connectToDB.php');
@@ -111,7 +113,7 @@ echo'
     
     foreach($resultSet as $id => $row){
         $userid = $row[1];
-        $query=mysqli_query($link,"SELECT * FROM `Users` WHERE `user_id`=".$userid);
+        $query=mysqli_query($link,"SELECT * FROM `users` WHERE `id`=".$userid);
         $res = mysqli_fetch_array($query);
         $friendname = $res[1];
         $friendLogo = $res[7];

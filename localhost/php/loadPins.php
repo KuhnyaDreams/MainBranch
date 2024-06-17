@@ -1,17 +1,19 @@
 <?php
     header('Content-Type: application/json');
     require_once('connectToDB.php');
-
-
-    $query=mysqli_query($link,"SELECT `position`, `pin_id` FROM `Pins`");
-    $pins = mysqli_fetch_all($query);
-    $pinpos =array();
-    foreach ($pins as $pos){
-        $temp =explode(", ",$pos[0]);
-        array_push($temp, $pos[1]);
-        array_push($pinpos, $temp);
+    $pinData =array();
+    if (isset($_POST['type'])){
+        if ($_POST['type']=='markers'){
+            $query=mysqli_query($link,"SELECT `position`,`id` FROM `pins`");
+            $pins = mysqli_fetch_all($query);
+            foreach ($pins as $pin){
+                $temp =explode(", ",$pin[0]);
+                array_push($temp, $pin[1]);
+                array_push($pinData, $temp);
+            }
+        }
     }
     
-    echo json_encode($pinpos);
+    echo json_encode($pinData);
     mysqli_close($link);
 ?>

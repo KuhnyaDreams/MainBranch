@@ -1,5 +1,5 @@
 let buttons = document.getElementById('profile-buttons').querySelectorAll('.button-item');
-
+let friends = document.getElementById('friendsList');
 for (let b of buttons){
     b.onclick = function(){
         if (getCookie('userlogin')){
@@ -33,8 +33,20 @@ $("#friendCode").keyup(function(event){
             url: '../php/addFriend.php',
             data: {user:getCookie('userID'), friend:$('#friendCode').val()},
             success: function (response) {
-                console.log(response);
-                location.reload();
+                friends.innerHTML ="";
+                response.forEach(element => {
+                    let div = document.createElement('div');
+                    div.innerHTML = ` 
+                    <div class="friendlist-placement">
+                        <div class="user-info">
+                            <img src="./userContent/`+element[2]+`" alt="avatar" class="avatar-user"  width="80px" height="80px">
+                            <div class="user-name" >
+                            `+element[0]+`
+                            </div>
+                        </div>
+                    </div>`;
+                    friends.appendChild(div);
+                });
             },
             error: function(){
                 console.log('eeror');
