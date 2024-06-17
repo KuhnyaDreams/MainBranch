@@ -8,21 +8,7 @@
     </head>
 
     <body onload="GetLoc()">
-        <!--<div class="debugCoords">
-            <p>lat: <span id='lat'></span></p>
-            <p>lon: <span id='lon'></span></p>
-        </div>-->
         <?php
-            $userLogo = 'not-login-user.jpg';
-            if(isset($_COOKIE["userID"])){
-                require_once('php/connectToDB.php');
-                $query=mysqli_query($link,"SELECT * FROM `Users` WHERE `user_id`='".$_COOKIE['userID']."'");
-                $getUser = mysqli_fetch_array($query);
-                if (isset($getUser[7])){
-                    $userLogo = $getUser[7];
-                }
-                mysqli_close($link);
-            }
             include('html/auth.html');
             include('html/reg.html');
             include('html/addFriend.html');
@@ -79,7 +65,7 @@
         </div>
         
     </body>
-
+     
     <script src="../js/map.js"></script>
     <script src="../js/mainFunctions.js"></script>
     <script src="../js/authWindowScript.js"></script>
@@ -88,4 +74,5 @@
     <script src="../js/settings.js"></script>
     <script src="../js/profileButtons.js"></script>
     <script src="../js/locationInfo.js"></script>
+
 </html>

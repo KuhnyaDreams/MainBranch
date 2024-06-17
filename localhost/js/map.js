@@ -17,9 +17,10 @@ function closeHover(){
     closeMore();
 }
 function success(position) {
-    var lat = position.coords.latitude;
-    var lon = position.coords.longitude;
-    
+    if (position!=null){
+        lat = position.coords.latitude;
+        lon = position.coords.longitude;
+    }
     map.setView([lat, lon], 13);
     $('#lat').text(lat);
     $('#lon').text(lon);
