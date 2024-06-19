@@ -18,15 +18,16 @@ var previousPin;
 
 
 function openMore(locationId){
-    console.log('open' );
-    for (let b of descButtons){
-        b.querySelector('span').classList.remove('active');
-    }
+    
     locationDesc.textContent='';
     if (previousPin != locationId) {
         previousPin = locationId
         loadNew(locationId);
-    } 
+    }
+    for (let b of descButtons){
+        b.querySelector('span').classList.remove('active');
+    }
+    
     locationBlock.classList.remove('not-visible');
 }
 

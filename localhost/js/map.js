@@ -5,7 +5,7 @@ var LeafIcon = L.Icon.extend({
     options: {
        iconSize:     [50, 60],
        shadowSize:   [45, 50],
-       iconAnchor:   [15, 60],
+       iconAnchor:   [17, 60],
        shadowAnchor: [3, 58],
        popupAnchor:  [-3, -76]
     }
@@ -32,6 +32,8 @@ var map = L.map('map', {attributionControl: false
 var markers = [];
 map.createPane('userMarker');
 map.getPane('userMarker').style.zIndex=1000;
+map.createPane('pinsMarkers');
+map.getPane('pinsMarkers').style.zIndex=800;
 
 var userMarker = new L.marker(map.getCenter(),{id:'0',icon:userMarkerIcon, pane:'userMarker'}).addTo(map);
 markers.push(userMarker);
@@ -72,7 +74,7 @@ function success(position) {
         success: function (response) {
             for (var i = 0; i < response.length; i++) 
             {
-                var marker = new L.marker([response[i][0], response[i][1]],{id:response[i][2], icon:customIcon})
+                var marker = new L.marker([response[i][0], response[i][1]],{id:response[i][2], icon:customIcon, pane:'pinsMarkers'})
                 .on("click", function(event){
                     console.log('open'+event.target.options.id);
                     openMore(event.target.options.id);

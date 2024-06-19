@@ -89,15 +89,30 @@ echo'
 </div>
 
 <div class="achievements not-visible">
-    <div class="achievement">
-        <div class="achievement-logo">
-            <img src="../img/achievement.png" width="40px" height="40px"> 
-        </div>
-        <div class="achievement-description" >
-            <span>Название достижения</span>
-            <span>Описание достижения</span>
-        </div>
-    </div>
+'; 
+    require('connectToDB.php');
+    $query=mysqli_query($link,"SELECT `achievement_id` FROM `achievementLink` WHERE `user_id`=".$_COOKIE['userID']);
+    $resultSet = mysqli_fetch_all($query);
+    foreach($resultSet as $row => $id){
+        $query=mysqli_query($link,"SELECT * FROM `achievements` WHERE `id`=".$id[0]);
+        $res = mysqli_fetch_all($query);
+        foreach ($res as $achievement){
+            echo'
+            <div class="achievement">
+                <div class="achievement-logo">
+                    <img src="../img/achievements/'.$achievement[3].'" width="160px" height="160px"> 
+                </div>
+                <div class="achievement-description" >
+                    <span class="achievement-name">'.$achievement[1].'</span>
+                    <span>'.$achievement[2].'</span>
+                </div>
+            </div>
+            ';
+        }
+        
+    }
+    mysqli_close($link);
+echo'
 </div>
 
 <div class="friends not-visible">
@@ -108,11 +123,11 @@ echo'
     '; 
 
     require('connectToDB.php');
-    $query=mysqli_query($link,"SELECT * FROM `friends` WHERE `user_id`=".$_COOKIE['userID']);
+    $query=mysqli_query($link,"SELECT `friends_id` FROM `friends` WHERE `user_id`=".$_COOKIE['userID']);
     $resultSet = mysqli_fetch_all($query);
     
     foreach($resultSet as $id => $row){
-        $userid = $row[1];
+        $userid = $row[0];
         $query=mysqli_query($link,"SELECT * FROM `users` WHERE `id`=".$userid);
         $res = mysqli_fetch_array($query);
         $friendname = $res[1];
