@@ -12,7 +12,7 @@
             for ($i=0; $i<count($res); $i++){
                 if ($res[$i][0]==$_COOKIE['userID']){
                     echo"
-                        <div class='place'>
+                        <div class='leaderboard-place'>
                             ".($i+1)."
                         </div>
                         <img src='../userContent/".$res[$i][2]."' alt='avatar' class='avatar-user' width='80px' height='80px'>
@@ -50,7 +50,7 @@
     <?php for ($i=0; $i<count($res); $i++){
         echo"
             <div class='leaderboard-placement' id='other'>
-                <div class='place'>
+                <div class='leaderboard-place'>
                     ".($i+1)."
                 </div>
                 <img src='../userContent/".$res[$i][2]."' alt='avatar' class='avatar-user' width='80px' height='80px'>
