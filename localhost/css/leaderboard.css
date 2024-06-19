@@ -6,7 +6,10 @@
     padding-bottom: 20px;
     border-bottom: 2px solid #7e142a;
 }
-
+.leaderboard-list{
+    height:auto;
+    overflow-y: auto;
+}
 .leaderboard-info{
     padding: 0 20px;
     display: flex;

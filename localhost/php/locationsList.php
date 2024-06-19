@@ -1,7 +1,7 @@
-<div class="location-list">
+<div class="location-list" onscroll="scrollMore()" id='locList'>
     <?php 
     require('connectToDB.php');
-    $query=mysqli_query($link,"SELECT * FROM `pins` ORDER BY `id` LIMIT 10");
+    $query=mysqli_query($link,"SELECT * FROM `pins` ORDER BY `id` limit 10");
     $pins = mysqli_fetch_all($query);
     foreach ($pins as $pos){      
         $temp =explode(", ",$pos[2]);

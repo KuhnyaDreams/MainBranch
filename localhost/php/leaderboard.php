@@ -1,23 +1,33 @@
 <div class="leaderboard-placement" id="user">
-    <?php if(!isset($_COOKIE["userlogin"])){ 
+    <?php
+    require('connectToDB.php');
+    $query=mysqli_query($link,"SELECT `id`,`login`,`user_logo`,`visited` FROM `users` ORDER BY `visited` DESC");
+    $res = mysqli_fetch_all($query);
+    mysqli_close($link);
+        if(!isset($_COOKIE["userlogin"])){ 
             echo'<div class="need-auth">
                 Для полноцнного использования сайта необходима авторизация
             </div>';
         }else{
-            echo'
-            <div class="place">
-                43
-            </div>
-            <img src="../userContent/'.$userLogo.'" alt="avatar" class="avatar-user" width="80px" height="80px">
+            for ($i=0; $i<count($res); $i++){
+                if ($res[$i][0]==$_COOKIE['userID']){
+                    echo"
+                        <div class='place'>
+                            ".($i+1)."
+                        </div>
+                        <img src='../userContent/".$res[$i][2]."' alt='avatar' class='avatar-user' width='80px' height='80px'>
 
-            <div class="leaderboard-user">
-                '.$_COOKIE["userlogin"].'
-            </div>
-        
-            <div class="visited">
-                27
-            </div>
-            ';
+                        <div class='leaderboard-user'>
+                            ".$res[$i][1]."
+                        </div>
+                    
+                        <div class='visited'>
+                        ".$res[$i][3]."
+                        </div>
+                    "; 
+                }
+            }
+            
         }
     ?>
 </div>
@@ -36,18 +46,23 @@
     </p>
 </div>
 
-<div class="leaderboard-placement" id="other">
-    
-    <div class="place">
-        1
-    </div>
+<div class="leaderboard-list">
+    <?php for ($i=0; $i<count($res); $i++){
+        echo"
+            <div class='leaderboard-placement' id='other'>
+                <div class='place'>
+                    ".($i+1)."
+                </div>
+                <img src='../userContent/".$res[$i][2]."' alt='avatar' class='avatar-user' width='80px' height='80px'>
 
-    <img src="img/not-login-user.jpg" alt="avatar" class="avatar-user" width="80px" height="80px">
-    <div class="leaderboard-user">
-        Логин
-    </div>
-    <div class="visited">
-        1488
-    </div>
-  
+                <div class='leaderboard-user'>
+                    ".$res[$i][1]."
+                </div>
+            
+                <div class='visited'>
+                ".$res[$i][3]."
+                </div>
+            </div>
+        ";     
+    }?>
 </div>
