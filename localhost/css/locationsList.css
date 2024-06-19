@@ -52,7 +52,7 @@
     padding: 0;
     top:90px;
     left: 530px;
-    z-index:60;
+    z-index:7;
 }
 .location-buttons{
     display: flex;
@@ -105,7 +105,7 @@
     color:#726767;
 }
 .location-info-desc{
-    max-height:400px;
+    height: auto;
     overflow: auto;
     font-size: 16px;
 }
