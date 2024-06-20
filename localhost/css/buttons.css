@@ -40,3 +40,6 @@
     margin: auto;
     width: 100%;
 }
+.square-active{
+    background-color: #7e142a;
+}

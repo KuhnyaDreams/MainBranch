@@ -49,7 +49,7 @@
 <div class="leaderboard-list">
     <?php for ($i=0; $i<count($res); $i++){
         echo"
-            <div class='leaderboard-placement' id='other'>
+            <div class='leaderboard-placement' id='other' onClick='openProfile(".$res[$i][0].")'>
                 <div class='leaderboard-place'>
                     ".($i+1)."
                 </div>
