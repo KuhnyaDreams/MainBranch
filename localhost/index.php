@@ -51,6 +51,9 @@
                 <div class="menu-content not-visible" id="settings">
                     <?php include('php/settings.php');?>
                 </div>
+                <div class="menu-content not-visible" id='anotherProfile'>
+                    <?php include('php/anotherProfile.php');?>
+                </div>
             </div>
         </div>
         <div class="searchbar" >

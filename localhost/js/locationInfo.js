@@ -47,7 +47,7 @@ function loadNew(locationId){
                 }
                 addressButton.querySelector('span').classList.add('active');
                 locationDesc.textContent=response[6];
-                route.spliceWaypoints(1,1,markers[locationinfoID.textContent].getLatLng());
+                route.spliceWaypoints(1,1,markers[locationinfoID.textContent-1].getLatLng());
             };
             descButton.onclick = function(){
                 for (let b of descButtons){
@@ -63,6 +63,17 @@ function loadNew(locationId){
                 scheduleButton.querySelector('span').classList.add('active');
                 locationDesc.textContent=response[5];
             };  
+            if (response[8]==true){
+                addToFav.classList.add('square-active');
+            }else{
+                addToFav.classList.remove('square-active');
+            }
+            if (response[9]==true){
+                addToWish.classList.add('square-active');
+            }else{
+                addToWish.classList.remove('square-active');
+            }
+
         },
         error: function(){
             console.log('eeror');
@@ -109,10 +120,11 @@ function addToDB(where){
                         wishList.appendChild(div);
                     }
                 });
-
+                loadNew(locationinfoID.textContent);
             },
         });
     }
+    
 }
 addToFav.onclick = function(){
     addToDB('Favourites');
@@ -120,44 +132,7 @@ addToFav.onclick = function(){
 addToWish.onclick = function(){
     addToDB('Wishlist');
 }
-var start = 10;
-function scrollMore(){
-    
-	var wt = $('.location-list').scrollTop();
-	var wh = $('.location-list').height();
-    var dh = $('.vertical-menu').height();
-	if (wt+wh >= dh){
-        
-		$.ajax({ 
-            type: 'POST',
-			url: '../php/loadMoreLocations.php',  
-            data:{start:start, search:searchBar.value},
-			success: function(data){
-                start =start + 10;
-                data.forEach(element => {
-                var div = document.createElement('div')
-                div.innerHTML=`<div class='landmark' onclick='openMore("`+element[0]+`")'>
-                    <div class='landmark-info'>  
-                        <div class='landmark-name'>
-                            <div>`+element[1]+`</div>
-                        </div>
 
-                        <div class='landmark-description'>
-                            <div>`+element[7]+`</div>
-                        </div>
-
-                        <div class='landmark-misc'>
-                            <div>`+element[5]+element[6]+`</div>
-                        </div>
-                    </div>
-                    <img class='photo-landmark' src='`+element[4]+`' alt='photo landmark' width='166px' height='110px'>
-                </div>`;
-                locList.appendChild(div);
-                });
-            }
-		});
-	}
-}
 searchBar.oninput = function(){
     $.ajax({ 
         type: 'POST',
@@ -185,7 +160,6 @@ searchBar.oninput = function(){
             </div>`;
             locList.appendChild(div);
             });
-            start=10;
         }
     });
 }
@@ -217,15 +191,6 @@ function CleanInput(id){
             </div>`;
             locList.appendChild(div);
             });
-            start=10;
         }
     });
 }
-
-$(window).scroll(function(){
-	scrollMore();
-});
-	
-$(document).ready(function(){ 
-	scrollMore();
-});

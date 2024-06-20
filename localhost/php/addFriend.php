@@ -21,10 +21,10 @@
         $response = "error";
     }
     $friendsData = array();
-    $query=mysqli_query($link,"SELECT * FROM `friends` WHERE `user_id`=".$_COOKIE['userID']);
+    $query=mysqli_query($link,"SELECT `friend_id` FROM `friends` WHERE `user_id`=".$_COOKIE['userID']);
     $resultSet = mysqli_fetch_all($query);
     foreach($resultSet as $id => $row){
-        $userid = $row[1];
+        $userid = $row[0];
         $query=mysqli_query($link,"SELECT `Login`,`id`,`User_logo` FROM `users` WHERE `id`=".$userid);
         $res = mysqli_fetch_array($query);
         array_push($friendsData, $res);
