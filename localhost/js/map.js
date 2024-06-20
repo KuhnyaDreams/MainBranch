@@ -35,8 +35,6 @@ map.getPane('userMarker').style.zIndex=1000;
 map.createPane('pinsMarkers');
 map.getPane('pinsMarkers').style.zIndex=800;
 
-var userMarker = new L.marker(map.getCenter(),{id:'0',icon:userMarkerIcon, pane:'userMarker'}).addTo(map);
-markers.push(userMarker);
 function GetLoc()
 {
     if (navigator.geolocation) {
@@ -50,10 +48,10 @@ function success(position) {
     if (position!==null){
         lat = position.coords.latitude;
         lon = position.coords.longitude;
-        userMarker.setLatLng([lat,lon]);
+        var userMarker = new L.marker([lat,lon],{id:'0',icon:userMarkerIcon, pane:'userMarker'}).addTo(map);
         route = new L.Routing.control({
             waypoints: [
-              markers[0].getLatLng(),null
+              userMarker.getLatLng(),null
             ],
             serviceUrl: 'https://routing.openstreetmap.de/routed-foot/route/v1',
             routeWhileDragging: false,
@@ -67,28 +65,28 @@ function success(position) {
     map.setView([lat, lon], 13);
     $('#lat').text(lat);
     $('#lon').text(lon);
-    $.ajax({
-        type: "POST",
-        url: '../php/loadPins.php',
-        data: {type:'markers'},
-        success: function (response) {
-            for (var i = 0; i < response.length; i++) 
-            {
-                var marker = new L.marker([response[i][0], response[i][1]],{id:response[i][2], icon:customIcon, pane:'pinsMarkers'})
-                .on("click", function(event){
-                    console.log('open'+event.target.options.id);
-                    openMore(event.target.options.id);
-                })
-                .addTo(map);
-                markers.push(marker);
-            }
-        },
-        error: function(){
-            console.log('eeror markers');
-        },
-    });
 }
 
+$.ajax({
+    type: "POST",
+    url: '../php/loadPins.php',
+    data: {type:'markers'},
+    success: function (response) {
+        for (var i = 0; i < response.length; i++) 
+        {
+            var marker = new L.marker([response[i][0], response[i][1]],{id:response[i][2], icon:customIcon, pane:'pinsMarkers'})
+            .on("click", function(event){
+                console.log('open'+event.target.options.id);
+                openMore(event.target.options.id);
+            })
+            .addTo(map);
+            markers.push(marker);
+        }
+    },
+    error: function(){
+        console.log('eeror markers');
+    },
+});
 
 $('.leaflet-routing-container').hide();
 

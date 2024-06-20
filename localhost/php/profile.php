@@ -35,7 +35,6 @@
     <div class="button-item" id="favorite" ><span>Любимое</span></div>
     <div class="button-item" id="friends" ><span>Друзья</span></div>
 </div>
-
 <?php
 
 function loadPins($where){
@@ -119,11 +118,11 @@ echo'
     <div class="add-friend-button" onclick="showFriendAdd()">
         <p class="friend-add">Добавить друга</p>
     </div>
-    <div class="friends-box" id="friendsList">
+    <div class="friends-box" id="friendsList ">
     '; 
 
     require('connectToDB.php');
-    $query=mysqli_query($link,"SELECT `friends_id` FROM `friends` WHERE `user_id`=".$_COOKIE['userID']);
+    $query=mysqli_query($link,"SELECT `friend_id` FROM `friends` WHERE `user_id`=".$_COOKIE['userID']);
     $resultSet = mysqli_fetch_all($query);
     
     foreach($resultSet as $id => $row){
@@ -133,7 +132,7 @@ echo'
         $friendname = $res[1];
         $friendLogo = $res[7];
         echo '
-        <div class="friendlist-placement">
+        <div class="friendlist-placement" onClick="openProfile('.$userid.')">
             <div class="user-info">
                 <img src="./userContent/'.$friendLogo.'" alt="avatar" class="avatar-user"  width="80px" height="80px">
 
